@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/tyle.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="cart-wrapper home-wrapper py-5">
+      <div class="container-xxl">
+        <div class="row">
+          <div class="col-12">
+            <div
+              class="cart-header py-3 d-flex justify-content-between align-items-center"
+            >
+              <h4 class="cart-col-1">Book</h4>
+              <h4 class="cart-col-2">Price</h4>
+              <h4 class="cart-col-3">Quantity</h4>
+              <h4 class="cart-col-4">Total</h4>
+            </div>
+            <div class="something">
+              <div
+                class="cart-data py-3 mb-2 d-flex justify-content-between align-items-center"
+              >
+                <div class="cart-col-1 gaps-10 d-flex align-items-center">
+                  <div class="w-25">
+                    <img src="" class="img-fluid" alt="product image" />
+                  </div>
+                  <div class="w-75">
+                    <p>Jey</p>
+                    <p>Size: Jey</p>
+                    <p>Color: Jey</p>
+                  </div>
+                </div>
+                <div class="cart-col-2">
+                  <h5 class="price">$100</h5>
+                </div>
+                <div class="cart-col-3 d-flex align-items-center gaps-10">
+                  <div>
+                    <input
+                      class="form-control"
+                      type="number"
+                      name=""
+                      min="1"
+                      max="10"
+                      id=""
+                    />
+                  </div>
+                  <form
+                    action=""
+                    method="post"
+                    class="d-flex gap-10 flex-row mt-2 mb-3"
+                  >
+                    <input type="hidden" , value="#" />
+                    <button id="dlt-item" , class="btn btn-secondary" , type="submit">
+                      Remove
+                    </button>
+                  </form>
+                </div>
+                <div class="cart-col-4">
+                  <h5 class="price">$100</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 py-2 mt-4">
+              <div class="d-flex justify-content-between align-items-baseline">
+                <a href="http://" class="btn btn-secondary"
+                  >Continue to Shopping</a
+                >
+                <div class="d-flex flex-column align-items-end">
+                  <h4>SubTotal: $ 2000</h4>
+                  <p>Some text about checkout</p>
+                  <a href="" class="btn btn-secondary">Checkout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+<!-- <a href="http://">My cart (
+  <% if (typeof cart !== "undefined") { %>
+    <%= cart.length  %>
+    <% } else { %> 
+      0
+      <% } %>
+  )</a> -->

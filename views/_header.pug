@@ -1,0 +1,25 @@
+header.header
+    section
+        nav.navbar.navbar-expand-lg.bg-body-tertiary
+            div.container-md
+                h2
+                    a.navbar-brand(href="#") Bookie
+                ul.navbar-nav.justify-content-between.align-items-center.d-flex
+                    li.nav-item.dropdown
+                        a.btn.dropdown-toggle.nav-link.align-items-center(href="#", role="button", data-bs-toggle="dropdown", aria-expanded="false")
+                            i.fa-solid.fa-user.fa-xl
+                            | Register
+                        ul.dropdown-menu.dropdown-menu-light
+                            li
+                                div.d-grid.gap-2.col-6.mx-auto
+                                    a.btn.btn-secondary(href="#", role="button") Sign in
+                            li
+                                hr.dropdown-divider
+                            li
+                                a.dropdown-item(href="#") My account
+                            li
+                                a.dropdown-item(href="#") Orders
+                    li.nav-item
+                        a.nav-link.align-items-center(href="#")
+                            i.fa-solid.fa-cart-shopping.fa-xl
+                            | Cart

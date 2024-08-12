@@ -1,0 +1,26 @@
+extends baseForm
+
+block content 
+
+    .login-wrapper.py-5.home-wrapper
+        .container-xxl
+            .row
+                .col-12
+                    .login-card
+                        h3.text-center.mb-3 Login
+                        form.form.d-flex.flex-column.gaps-10(action='' method='post')
+                            div
+                                label.form-label.marg-label(for='email') Email or username
+                                input#email.ett.form-control(autocomplete='email' type='email' placeholder='Email or username' required='')
+                            .mt-1
+                                label.form-label.marg-label(for='password') Password
+                                input#password.form-control(type='password' placeholder='Password' required='' minlength='8')
+                            .mt-3
+                                button.button2(type='submit') Login
+                            .text-center
+                                a(href='/forgotPassword') Forgot your Password
+                            hr.liner
+                            .text-center.hr-under
+                                span Do not have an account?
+                                | 
+                                a(href='/signup') Sign up

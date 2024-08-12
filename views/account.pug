@@ -1,0 +1,57 @@
+extends base
+
+block content 
+
+    .home-wrapper.py-5
+        .container-xxl.mxwdth.p-3
+            .row
+                .col-12
+                    .row
+                        .col-4
+                            nav.sm-menu.brdrd.txt-clr.bg-white
+                                a.m-item.clrs(href='')
+                                    svg.mrm(viewbox='0 0 448 512' fill='currentColor' height='1.4rem' width='1.4rem' ...props)
+                                        path(d='M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32 0-97.2-78.8-176-176-176zM48.99 464c7.9-63.1 61.81-112 127.01-112h96c65.16 0 119.1 48.95 127 112H48.99zM224 256c70.69 0 128-57.31 128-128S294.69 0 224 0 96 57.31 96 128c0 70.7 57.3 128 128 128zm0-208c44.11 0 80 35.89 80 80s-35.89 80-80 80-80-35.9-80-80c0-44.11 35.9-80 80-80z')
+                                    |                     My Profile
+                                a.m-item.clrs(href='')
+                                    svg.mrm(viewbox='0 0 1024 1024' fill='currentColor' height='1.4rem' width='1.4rem' ...props)
+                                        path(d='M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3zM664.8 561.6l36.1 210.3L512 672.7 323.1 772l36.1-210.3-152.8-149L417.6 382 512 190.7 606.4 382l211.2 30.7-152.8 148.9z')
+                                    |                     My Reviews
+                                a.m-item.clrs(href='')
+                                    svg.mrm(fill='currentColor' viewbox='0 0 16 16' height='1.4rem' width='1.4rem' ...props)
+                                        path(d='M2.95.4a1 1 0 01.8-.4h8.5a1 1 0 01.8.4l2.85 3.8a.5.5 0 01.1.3V15a1 1 0 01-1 1H1a1 1 0 01-1-1V4.5a.5.5 0 01.1-.3L2.95.4zM7.5 1H3.75L1.5 4h6V1zm1 0v3h6l-2.25-3H8.5zM15 5H1v10h14V5z')
+                                    |                     My Orders
+                        .col-8
+                            .sm-menu
+                                .pd-dw
+                                    .bg-white
+                                        .hds-sty
+                                            header.fsmg Account Information
+                                        .mrg-lt
+                                            form.frm-data(autocomplete='off')
+                                                .frm-tyle
+                                                    label(for='name') Name
+                                                    input#name.form-control(type='text', value= `${user.name}`, required)
+                                                .frm-tyle
+                                                    label(for='name') Email Address
+                                                    input#email.form-control(type='email', value= `${user.email}`, required)
+                                                div
+                                                    button.button2(type='submit') Save Changes
+                                
+                                .pd-up
+                                    .bg-white
+                                        .hds-sty
+                                            header.fsmg Password Settings
+                                        .mrg-lt
+                                            form.frm-password(autocomplete='off')
+                                                .frm-tyle
+                                                    label(for='password-current') Current Password
+                                                    input#password-current.form-control(type='password', required, minlength='8')
+                                                .frm-tyle
+                                                    label(for='password') New Password
+                                                    input#password.form-control(type='password',required,  minlength='8')
+                                                .frm-tyle
+                                                    label(for='password-confirm') confirmPassword
+                                                    input#password-confirm.form-control(type='password',required,  minlength='8')
+                                                div
+                                                    button.button2(type='submit') Save settings

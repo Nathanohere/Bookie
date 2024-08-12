@@ -1,0 +1,24 @@
+extends baseForm
+
+block content 
+
+    .login-wrapper.py-5.home-wrapper
+        .container-xxl
+            .row
+                .col-12
+                    .login-card
+                        h3.text-center.mb-3 Sign Up
+                        form.frm-signup.d-flex.flex-column.gaps-10(action='' method='post')
+                            div
+                                input#name.form-control(type='text' placeholder='Full name')
+                            div
+                                input#email.form-control(type='email' placeholder='Email')
+                            .mt-1
+                                input#password.form-control(type='password' placeholder='Password' required='' minlength='8')
+                            .mt-3
+                                button.button2(type='submit') Sign Up
+                            hr.liner
+                            .text-center.hr-under
+                                span Already have an account?
+                                | 
+                                a(href='/login') Login here

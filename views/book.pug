@@ -1,0 +1,44 @@
+extends base
+
+include _reviewCard
+
+block content
+    main
+        section.p-5.home-wrapper
+            .container-xxl.px-5
+                .row
+                    .col-12
+                        .bg-white
+                            .row
+                                .col-5
+                                    .main-product-image
+                                        div
+                                            img(src=`/img/books/${book.thumbnailUrl}` alt=`${book.title}`)
+                                .col-7
+                                    .prod-details
+                                        .border-bottom
+                                            h3.title=book.title
+                                        .border-bottom.py-3
+                                            p.marg-bot= `by ${book.authors}`
+                                            p.marg-bot.price= `$${book.price}`
+                                            .reviews.marg-bot.d-flex.align-items-center.gap-10
+                                                - const [review] = book.reviews
+                                                    +reviewCard(review)
+                                                p.mb-0=`${book.ratingsQuantity} reviews`
+                                            p.marg-bot= `ISBN: ${book.isbn}`  
+                                        .border-bottom.py-2
+                                            form.crt.d-flex.gap-10.flex-row.mt-2.mb-3(action="", method="post") 
+                                                input#crt-items(type='hidden'  value=`${book._id}`)
+                                                button.button.button1(type='submit') Add to Cart
+                                            .gap-10
+                                                i.marg-bot.fa-solid.fa-truck-fast
+                                                | Shipping &amp; Returns
+                                            p.prod-data
+                                                | Shipping &amp; returns available on all orders
+        section.description-wrapper.p-5.home-wrapper
+            .container-xxl.px-5
+                .row
+                    .col-12
+                        h4 Description
+                        .bg-white.p-3
+                            p.description_text= book.longDescription

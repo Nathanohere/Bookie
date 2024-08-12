@@ -1,0 +1,17 @@
+extends base
+
+block content 
+
+    main.home-wrapper.py-5.home-wrapper
+        .container-xxl
+            .row.gap
+                each book in books
+                    .col-3.pads
+                        .blog-card
+                            .card-image
+                                img.img-fluid(src=`/img/books/${book.thumbnailUrl}`, alt=`${book.title}`)
+                            .container
+                                span.a-size
+                                    .title=book.title
+                                p.price= `$${book.price}`
+                                a.btn.btn-secondary(href=`/book/${book.slug}`) Details
