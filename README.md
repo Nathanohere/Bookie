@@ -15,7 +15,7 @@
 * Run server ```npm run start```
 
 ## Tech Stack
-* [Node.js](https://nodejs.org/en):Node.js is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.
+* [Node.js](https://nodejs.org/en): Node.js is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts.
 * [Express](https://expressjs.com/): Express is a web framework for Node.js.
 * [MongoDB](https://www.mongodb.com/): MongoDB is a source-available, cross-platform, document-oriented database program. 
 * [Pug](https://pugjs.org/api/getting-started.html): Pug is a template engine that works with JavaScript libraries and frameworks
