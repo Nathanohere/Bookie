@@ -11,3 +11,12 @@
 </ul>
 
 ## Installation
+
+### Prerequisites
+* Nodejs (version 16 or higher)
+* npm
+
+### Installation Steps
+* Clone the repository
+* Install dependencies ```npm install```
+* Run server ```npm run start```
