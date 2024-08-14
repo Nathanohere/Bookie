@@ -2,13 +2,20 @@
 ### Welcome to Bookie Online store. This is an online bookstore project where users purchase tech-related books, built using Nodejs, MongoDB and Pug template. It features full CRUD operations on books, carts, users and reviews.
 
 ## Screenshots
-![Auth1](https://github.com/user-attachments/assets/7a16849e-40ae-4e49-9d9c-bb60cdcde596) ![Auth2](https://github.com/user-attachments/assets/2055dec5-4860-4ac0-9d0d-53cf799773ba)
-
+![Screenshot 2024-08-14 061224](https://github.com/user-attachments/assets/873d7183-1dde-4c52-b029-608f537a5854)
 
 ![Screenshot 2024-08-14 072828](https://github.com/user-attachments/assets/f97989c8-a27e-4498-838e-100a47667a13)
 
 
 ## Environmental Variables
+This project requires the following enviroment variables:
+**NODE_ENV**=development
+**PORT**=3000
+**JWT_SECRET**
+**DATABASE**
+**DATABASE_PASSWORD**
+**SENDGRID_USERNAME**
+**SENDGRID_PASSWORD**
 
 ## Installation
 
