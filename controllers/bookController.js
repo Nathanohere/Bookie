@@ -10,30 +10,3 @@ exports.updateBook = handler.updateOne(Book);
 exports.deleteBook = handler.deleteOne(Book);
 
 
-
-
-// exports.getBook = asyncHandler(async (req, res, next) => {
-//   const book = await Book.findById(req.params.id).populate('reviews');
-//   if (!book) {
-//     return next(new AppError('No tour exists with that Id', 404));
-//   }
-//   res.status(200).json({
-//     status: 'success',
-//     data: {
-//       book,
-//     },
-//   });
-// });
-
-// exports.deleteBook = asyncHandler(async (req, res) => {
-//   const book = await Book.findByIdAndDelete(req.params.id);
-
-//   if (!book) {
-//     return next(new AppError('No tour exists with that Id', 404));
-//   }
-
-//   res.status(204).json({
-//     status: 'success',
-//     data: null,
-//   });
-// });

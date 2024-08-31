@@ -66,10 +66,12 @@ export const logout = async () => {
   }
 };
 
+
 export const addToCart = async (bookId) => {
-  let quantity = 1;
-  let iconCartSpan = document.querySelector('.crt-num');
-  iconCartSpan.textContent = quantity;
+  const quantity = 1;
+  console.log('cons', quantity);
+
+  // iconCartSpan.textContent = quantity;
   try {
     const res = await axios({
       method: 'POST',
@@ -91,8 +93,31 @@ export const deleteCart = async (book) => {
       url: `http://127.0.0.1:3000/api/v1/users/emptyCart?bookId=${book}`,
       data: { book },
     });
-    if ((res.data.status = 'success')) location.reload(true);
+    console.log('cony', res.data);
+    if (res.data.status === 'success') location.reload(true);
   } catch (error) {
     showAlert('error', 'Error removing cart');
+  }
+};
+
+export const checkout = async (email, amount) => {
+  try {
+    const res = await axios({
+      method: 'POST',
+      url: `http://127.0.0.1:3000/paystack`,
+      data: { email, amount },
+    });
+    console.log('joy', res.data);
+    const data = JSON.parse(res.data);
+    console.log('gol', data.status);
+    if (data.status === true) {
+      const redirectUrl = data.data.authorization_url;
+      console.log(redirectUrl);
+      window.setTimeout(() => {
+        location.href = redirectUrl;
+      }, 1000);
+    }
+  } catch (error) {
+    showAlert('error', 'Error making payment');
   }
 };

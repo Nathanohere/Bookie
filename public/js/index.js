@@ -1,5 +1,5 @@
 import '@babel/polyfill';
-import { signup, login, logout, addToCart, deleteCart } from './test';
+import { signup, login, logout, addToCart, deleteCart, checkout } from './test';
 import { updateSettings } from './updateSettings';
 import { forgotPassword } from './forgotPassword';
 import { resetPassword } from './resetPassword';
@@ -14,6 +14,7 @@ const forgotPasswordForm = document.querySelector('.fgtPass');
 const resetPasswordForm = document.querySelector('.rstPass');
 const addToCartForm = document.querySelector('.crt');
 const deleteCartForm = document.querySelector('.dlt');
+const checkoutForm = document.querySelector('.chkout');
 
 if (signUpForm)
   signUpForm.addEventListener('submit', (e) => {
@@ -90,4 +91,17 @@ if (deleteCartForm)
     const book = document.getElementById('dlt-item').value;
     console.log('si', book);
     await deleteCart(book);
+  });
+
+if (checkoutForm)
+  checkoutForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const userEmail = document.getElementById('chk-use').value;
+    const totalClass = document.querySelector('.totalBill');
+    const totalClassText = totalClass.textContent;
+    const numValue = parseFloat(totalClassText.replace(/[^0-9.]/g, ''));
+    console.log('yus', userEmail);
+    console.log('cvb', totalClassText);
+    console.log('numV', numValue);
+    await checkout(userEmail, numValue);
   });

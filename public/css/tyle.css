@@ -103,6 +103,18 @@ ul {
   width: 100%;
 }
 
+.something .quantity button {
+  border: none;
+}
+
+/*
+.something .quantity span {
+  width: 25px;
+  height: 25px;
+  background-color: #eee;
+  color: #555;
+} */
+
 .alert {
   position: fixed;
   top: 0;
@@ -838,7 +850,7 @@ i {
 }
 
 .cart-header h4 {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--color-777777);
 }
 
@@ -940,4 +952,21 @@ i {
 
 .form__group:not(:last-child) {
   margin-bottom: 1.5rem;
+}
+
+#paymentForm {
+  width: 300px;
+  margin: 0 auto;
+}
+
+/* Styling for form groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Styling for labels */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
 }

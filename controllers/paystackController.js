@@ -10,7 +10,7 @@ exports.acceptPayment = asyncHandler(async (req, res) => {
     const params = JSON.stringify({
       email: email,
       amount: amount * 100,
-    });
+    });    
     // options
     const options = {
       hostname: 'api.paystack.co',

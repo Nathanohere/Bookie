@@ -11,7 +11,7 @@
     "authors": ["W. Frank Ableson", "Charlie Collins", "Robi Sen"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 19.99,
+    "price": 31984,
     "categories": ["Open Source", "Mobile"]
   },
   {
@@ -26,7 +26,7 @@
     "authors": ["W. Frank Ableson", "Robi Sen"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 10.99,
+    "price": 17584,
     "categories": ["Java"]
   },
   {
@@ -41,7 +41,7 @@
     "authors": ["Christian Bauer", "Gavin King"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 12.99,
+    "price": 20784,
     "categories": ["Java"]
   },
 
@@ -57,7 +57,7 @@
     "authors": ["Christian Bauer", "Gavin King"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 13.99,
+    "price": 22384,
     "categories": ["Java"]
   },
 
@@ -73,7 +73,7 @@
     "authors": ["Clinton Begin", "Brandon Goodin", "Larry Meadors"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 15.99,
+    "price": 25584,
     "categories": ["Web Development"]
   },
   {
@@ -88,7 +88,7 @@
     "authors": ["Rob Allen", "Nick Lo", "Steven Brown"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 13.99,
+    "price": 22384,
     "categories": ["Web Development"]
   },
   {
@@ -103,7 +103,7 @@
     "authors": ["Bernerd Allmon", "Jeremy Anderson"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 17.99,
+    "price": 28784,
     "categories": ["Internet"]
   },
   {
@@ -118,7 +118,7 @@
     "authors": ["Andres Almiray", "Danno Ferrin", "", "James Shingler"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 18.99,
+    "price": 30384,
     "categories": ["Java"]
   },
   {
@@ -133,7 +133,7 @@
     "authors": ["Alexandre de Castro Alves"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 19.99,
+    "price": 31984,
     "categories": ["Java"]
   },
 
@@ -149,7 +149,7 @@
     "authors": ["Arnaud Cogoluegnes", "Thierry Templier", "", "Andy Piper"],
     "ratingsAverage": 4.5,
     "ratingsQuantity": 8,
-    "price": 29.99,
+    "price": 47984,
     "categories": ["Java"]
   },
 
@@ -165,7 +165,7 @@
     "authors": ["Craig Walls", "Ryan Breidenbach"],
     "ratingsAverage": 4.9,
     "ratingsQuantity": 8,
-    "price": 29.99,
+    "price": 47984,
     "categories": ["Java"]
   },
 
@@ -181,7 +181,7 @@
     "authors": ["Willie Wheeler with Joshua White"],
     "ratingsAverage": 4.6,
     "ratingsQuantity": 5,
-    "price": 25.99,
+    "price": 41584,
     "categories": ["Java", "Software Development"]
   },
 
@@ -197,7 +197,7 @@
     "authors": ["Anthony Williams"],
     "ratingsAverage": 4.5,
     "ratingsQuantity": 4,
-    "price": 25.99,
+    "price": 41584,
     "categories": ["Microsoft .NET"]
   },
 
@@ -219,7 +219,7 @@
     ],
     "ratingsAverage": 4.9,
     "ratingsQuantity": 14,
-    "price": 19.99,
+    "price": 31984,
     "categories": ["Web Development"]
   },
 
@@ -235,7 +235,7 @@
     "authors": ["Timothy Binkley-Jones", "Massimo Perga", "", "Michael Sync"],
     "ratingsAverage": 4.3,
     "ratingsQuantity": 6,
-    "price": 25.99,
+    "price": 41584,
     "categories": ["Mobile Technology"]
   },
 
@@ -251,7 +251,7 @@
     "authors": ["Rob Crowther", "Joe Lennon", "Ash Blue", "", "Greg Wanish"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 26,
-    "price": 9.99,
+    "price": 15984,
     "categories": ["Web Development"]
   },
 
@@ -267,7 +267,7 @@
     "authors": ["Chris Richardson"],
     "ratingsAverage": 4.7,
     "ratingsQuantity": 9,
-    "price": 25.99,
+    "price": 41584,
     "categories": ["Java"]
   },
 
@@ -283,7 +283,7 @@
     "authors": ["Peter Armstrong"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 11.99,
+    "price": 19184,
     "categories": ["Web Development"]
   },
   {
@@ -298,7 +298,7 @@
     "authors": ["Peter Armstrong"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 14.99,
+    "price": 23984,
     "categories": ["Internet"]
   },
 
@@ -314,7 +314,7 @@
     "authors": ["John Resig"],
     "ratingsAverage": 4.6,
     "ratingsQuantity": 6,
-    "price": 17.99,
+    "price": 28784,
     "categories": ["Java"]
   },
 
@@ -330,7 +330,7 @@
     "authors": ["Levi Asher", "Christian Crumlish"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
-    "price": 12.99,
+    "price": 20784,
     "categories": ["Miscellaneous"]
   }
 ]

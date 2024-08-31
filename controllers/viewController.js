@@ -22,6 +22,7 @@ exports.getBook = asyncHandler(async (req, res, next) => {
     return next(new AppError('No book available with that name.', 404));
   }
 
+
   res.status(200).render('views/book', {
     title: 'Code Dojo',
     book,
@@ -61,35 +62,3 @@ exports.getResetPasswordForm = asyncHandler((req, res) => {
     token,
   });
 });
-
-// exports.getCart = asyncHandler(async (req, res, next) => {
-//   const { bookId } = req.body;
-
-//   const book = await Book.findOne({ _id: bookId });
-//   console.log(book);
-//   if (!book) {
-//     return next(new AppError('No books found.', 404));
-//   }
-//   res.status(200).render('views/cart', {
-//     title: 'Get cart',
-//     book,
-//   });
-// });
-// exports.updateUser = async (req, res, next) => {
-//   const updatedUser = await User.findByIdAndUpdate(
-//     req.user.id,
-//     {
-//       name: req.body.name,
-//       email: req.body.email,
-//     },
-//     {
-//       new: true,
-//       runValidators: true,
-//     }
-//   );
-//   res.status(200).render('views/account', {
-//     title: 'Your account',
-//     user: updatedUser,
-//   });
-//   console.log('reka', req.user.id);
-// };

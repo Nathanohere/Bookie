@@ -15,6 +15,8 @@ const signToken = (id) => {
   });
 };
 
+let totalQuantity;
+
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
   const cookieOptions = {
@@ -103,7 +105,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
 
   // Verification token
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-  console.log(decoded);
+  console.log('dec', decoded);
 
   // Check if user exists
   const currentUser = await User.findById(decoded.id);
@@ -122,6 +124,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
   // Grant access to protected routes
   req.user = currentUser;
   res.locals.user = currentUser;
+
 
   next();
 });
@@ -148,6 +151,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
       // There is a logged in user
       res.locals.user = currentUser;
+
       return next();
     } catch (error) {
       return next();
@@ -181,11 +185,6 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   const resetToken = await user.createPasswordResetToken();
   await user.save({ validateBeforeSave: false });
   console.log(resetToken);
-
-  // Send to user's email
-  // const resetUrl = `${req.protocol}://${req.get(
-  //   'host'
-  // )}/api/v1/users/resetPassword/${resetToken}`;
 
   try {
     const resetUrl = `${req.protocol}://${req.get(
@@ -269,68 +268,6 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
   next();
 });
 
-/*
-
-exports.addToCart = asyncHandler(async (req, res, next) => {
-  const { bookId, quantity } = req.body;
-  const userId = req.user._id;
-  console.log('Uses', userId);
-  try {
-    const cart = await Cart.findOne({ userId });
-    const book = await Book.findOne({ _id: bookId });
-
-    if (!book) {
-      return next(new AppError('Book is not foud', 404));
-    }
-    const price = book.price;
-    const title = book.title;
-    //If cart already exists for user,
-    if (cart) {
-      const bookIndex = cart.books.findIndex((book) => book.bookId == bookId);
-      //check if product exists or not
-
-      if (bookIndex > -1) {
-        let product = cart.items[bookIndex];
-        product.quantity += quantity;
-
-        cart.bill = cart.books.reduce((acc, curr) => {
-          return acc + curr.quantity * curr.price;
-        }, 0);
-
-        cart.books[bookIndex] = product;
-        await cart.save();
-        res.status(200).send(cart);
-      } else {
-        cart.books.push({ itemId, title, quantity, price });
-        cart.bill = cart.books.reduce((acc, curr) => {
-          return acc + curr.quantity * curr.price;
-        }, 0);
-
-        await cart.save();
-        res.status(200).json({
-          status: 'success',
-          cart,
-        });
-      }
-    } else {
-      //no cart exists, create one
-      const newCart = await Cart.create({
-        userId,
-        items: [{ itemId, title, quantity, price }],
-        bill: quantity * price,
-      });
-      return res.status(200).json({
-        status: 'success',
-        newCart,
-      });
-    }
-  } catch (error) {
-    console.log(error);
-    return next(new AppError('Something went wrong', 500));
-  }
-});
-
-*/
 
 exports.getCart = asyncHandler(async (req, res, next) => {
   const userId = req.user._id;
@@ -341,9 +278,9 @@ exports.getCart = asyncHandler(async (req, res, next) => {
     const cart = await Cart.findOne({ userId }).populate('books.bookId');
     console.log('mm', cart);
     const { books } = cart;
-    console.log('nim', books);
+    // console.log('nim', books);
     const booky = books.map((item) => item.bookId);
-    console.log('.id', booky);
+    // console.log('.id', booky);
     booky.forEach((bookId) => {
       console.log('jjj', bookId.title);
       console.log('vvv', bookId.price);
@@ -401,10 +338,10 @@ exports.createCart = asyncHandler(async (req, res, next) => {
     return next(new AppError('This is invalid', 400));
   }
   try {
-    const cart = await Cart.findOne({ userId }).populate('books.bookId');
+    const cart = await Cart.findOne({ userId });
     const book = await Book.findOne({ _id: bookId });
-    console.log('ff', cart);
-    console.log('gg', book);
+    // console.log('ff', cart);
+    // console.log('gg', book);
     if (!book) {
       return next(new AppError('Book is not foud', 404));
     }
@@ -414,13 +351,13 @@ exports.createCart = asyncHandler(async (req, res, next) => {
     //If cart already exists for user,
     if (cart) {
       const bookIndex = cart.books.findIndex((book) => book.bookId == bookId);
-      console.log('bindx', bookIndex);
+      // console.log('bindx', bookIndex);
       //check if product exists or not
 
       if (bookIndex > -1) {
         let product = cart.books[bookIndex];
         product.quantity += quantity;
-
+        // console.log('prod', product.quantity);
         cart.bill = cart.books.reduce((acc, curr) => {
           return acc + curr.quantity * curr.price;
         }, 0);
@@ -433,7 +370,6 @@ exports.createCart = asyncHandler(async (req, res, next) => {
         cart.bill = cart.books.reduce((acc, curr) => {
           return acc + curr.quantity * curr.price;
         }, 0);
-
         await cart.save();
         res.status(200).json({
           status: 'success',
@@ -462,13 +398,15 @@ exports.createCart = asyncHandler(async (req, res, next) => {
 
 exports.getCartView = asyncHandler(async (req, res, next) => {
   const userId = req.user._id;
-  console.log('mm', userId);
+  const userEmail = req.user.email;
+  console.log('usy', req.user.email);
+  // console.log('mm', userId);
   const cart = await Cart.findOne({ userId }).populate('books.bookId');
   console.log('ct', cart);
   const { books } = cart;
-  console.log('nim', books);
+  console.log('nimy', books);
   const booky = books.map((item) => item.bookId);
-  console.log('.id', booky);
+  console.log('tori', booky);
   booky.forEach((bookId) => {
     console.log('jjj', bookId.title);
     console.log('vvv', bookId.price);
@@ -480,110 +418,10 @@ exports.getCartView = asyncHandler(async (req, res, next) => {
 
   res.status(200).render('views/cart', {
     title: 'Your cart',
+    books,
     booky,
     cart,
+    userEmail,
   });
 });
-/*
-exports.createCart = asyncHandler(async (req, res, next) => {
-  const { bookId, quantity, price } = req.body;
-  const { _id } = req.user;
-  console.log('Uses', _id)
-  if (!_id) {
-    return next(new AppError('This is invalid', 400));
-  }
-  try {
-    let newCart = await new Cart({
-      userId: _id,
-      bookId,
-      price,
-      quantity,
-    }).save();
-    res.status(200).json({
-      status: 'success',
-      newCart,
-    });
-  } catch (error) {
-    return next(
-      new AppError('There was an error adding the cart. Try again later!'),
-      500
-    );
-  }
-});
 
-exports.getCart = asyncHandler(async (req, res, next) => {
-  const { _id } = req.user;
-  if (!_id) {
-    return next(new AppError('This is invalid', 400));
-  }
-  try {
-    const cart = await Cart.findOne({ orderby: _id }).populate('books.book');
-    res.status(200).json({
-      status: 'success',
-      cart,
-    });
-  } catch (error) {
-    return next(
-      new AppError('There was an error getting the cart. Try again later!'),
-      500
-    );
-  }
-});
-
-exports.emptyCart = asyncHandler(async (req, res) => {
-  const { _id } = req.user;
-  if (!_id) {
-    return next(new AppError('This is invalid', 400));
-  }
-  try {
-    const user = await User.findOne({ _id });
-    const cart = await Cart.findOneAndRemove({ orderby: user._id });
-    res.status(204).json({
-      status: 'success',
-      data: cart,
-    });
-  } catch (error) {
-    return next(
-      new AppError('There was an error removing the cart. Try again later!'),
-      500
-    );
-  }
-});
-
-exports.getOrders = asyncHandler(async (req, res, next) => {
-  const { _id } = req.user;
-  if (!_id) {
-    return next(new AppError('This is invalid', 400));
-  }
-  try {
-    const userorders = await Order.findOne({ orderby: _id })
-      .populate('products.product')
-      .populate('orderby')
-      .exec();
-    res.json(userorders);
-  } catch (error) {
-    res.status(200).json({
-      status: 'success',
-      userorders,
-    });
-  }
-});
-
-exports.addToCart = asyncHandler(async (req, res, next) => {
-  const { bookId, quantity, price } = req.body;
-  const { _id } = req.user;
-  if (!_id) {
-    return next(new AppError('This is invalid', 400));
-  }
-  let cart = await Cart.findOne({ _id });
-  if (cart) {
-    const itemIndex = cart.books.findIncex(
-      (p) => p.booktId.toString() === bookId
-    );
-    if(itemIndex > -1) {
-      cart.books[itemIndex].quantity += quantity
-    }
-  }
-});
-
-*/

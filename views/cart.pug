@@ -11,28 +11,34 @@ block content
                         h4.cart-col-2 Price
                         h4.cart-col-3 Quantity
                         h4.cart-col-4 Total
-                    .something 
-                        each book in booky
-                            .cart-data.py-3.mb-2.d-flex.justify-content-between.align-items-center
-                                .cart-col-1.gaps-10.d-flex.align-items-center
-                                    .w-25
-                                        img.img-fluid(src=`/img/books/${book.thumbnailUrl}` alt=`${book.title}`)
-                                    .w-75                                
-                                .cart-col-2
-                                    h5.price= `$${book.price}`
-                                .cart-col-3.d-flex.align-items-center.gaps-10
-                                    div
-                                        input(type="number" name="" min="1" max="10" class="form-control")
-                                    form.dlt.d-flex.gap-10.flex-row.mt-2.mb-3(action='' method='post')
-                                        input#dlt-item(type='hidden' value=`${book._id}`)
-                                        button.btn.btn-secondary(type='submit') Remove
+                    .something      
+                            each val in books 
+                                .cart-data.py-3.mb-2.d-flex.justify-content-between.align-items-center
+                                    .cart-col-1.gaps-10.d-flex.align-items-center
+                                        .w-25
+                                            img.img-fluid(src=`/img/books/${val.bookId.thumbnailUrl}` alt=`${val.bookId.title}`)
+                                        .w-75                                
+                                    .cart-col-2
+                                        h5.price= `₦${val.bookId.price.toLocaleString('en-NG', { minimumFractionDigits: 0 })}`
+                                    .quantity.cart-col-3.d-flex.align-items-center.gaps-10
+                                        button.minus
+                                            svg(viewBox="0 0 1024 1024" fill="#555" height="1.7rem" width="1.7rem", ...props)
+                                                path(d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM704 536c0 4.4-3.6 8-8 8H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h368c4.4 0 8 3.6 8 8v48z")
+                                        span.quancy= `${val.quantity}`
+                                        button.plus
+                                            svg(viewBox="0 0 1024 1024" fill="#555" height="1.7rem" width="1.7rem", ...props)
+                                                path(d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM704 536c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z")
+                                        form.dlt.d-flex.gap-10.flex-row.mt-2.mb-3(action='' method='post')
+                                            input#dlt-item(type='hidden' value=`${val.bookId._id}`)
+                                            button.btn.btn-secondary(type='submit') Remove
 
-                                .cart-col-4
-                                    h5.price= `$${book.price}`
+                                    .cart-col-4
+                                        h5.price= `₦${val.bookId.price.toLocaleString('en-NG', { minimumFractionDigits: 0 })}`
                     .col-12.py-2.mt-4
                         .d-flex.justify-content-between.align-items-baseline
                             a(href="/" class="btn btn-secondary") Continue to Shopping
                             .d-flex.flex-column.align-items-end
-                                h4.SubTotal= `$${cart.bill}`
-                                p Some text about checkout
-                                a(href="" class="btn btn-secondary") Checkout
+                                form.chkout.d-flex.gap-10.flex-row.flex-column.mt-2.mb-3(action="", method="post") 
+                                    h4.totalBill= `SubTotal: ₦${cart.bill.toLocaleString('en-NG', { minimumFractionDigits: 0 })}`
+                                    input#chk-use(type='hidden'  value=`${userEmail}`)
+                                    button.btn.btn-secondary(type='submit') Checkout

@@ -15,7 +15,6 @@ const userRouter = require('./routes/userRoute');
 const reviewRouter = require('./routes/reviewRoute');
 const viewRouter = require('./routes/viewRoute');
 const categoryRouter = require('./routes/categoryRoute');
-const cartRouter = require('./routes/cartRoute');
 const paystackRouter = require('./routes/paystackRoute');
 const globalErrorHandler = require('./controllers/errorController');
 
@@ -27,11 +26,6 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname), 'views');
 
 app.use(cors());
-
-// app.use('*', (req, res, next) => {
-//   res.locals.cart = req.session.cart;
-//   next();
-// });
 
 // Body parser
 app.use(express.json());
@@ -81,32 +75,11 @@ app.use((req, res, next) => {
   next();
 });
 
-// 3) ROUTES
-// app.get('/', (req, res) => {
-//   res.status(200).render('views/base', {
-//     book: 'Code Dojo',
-//     user: test,
-//   });
-// });
-
-// app.get('/overview', (req, res) => {
-//   res.status(200).render('views/overview', {
-//     title: 'All books',
-//   });
-// });
-
-// app.get('/book', (req, res) => {
-//   res.status(200).render('views/book', {
-//     title: 'Code Dojo',
-//   });
-// });
-
 app.use('/', viewRouter);
 app.use('/api/v1/books', bookRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/categories', categoryRouter);
-app.use('/api/v1/carts', cartRouter);
 app.use('/paystack', paystackRouter);
 
 app.use('*', (req, res, next) => {

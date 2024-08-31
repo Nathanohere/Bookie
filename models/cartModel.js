@@ -45,18 +45,3 @@ const Cart = mongoose.model('Cart', cartSchema);
 
 module.exports = Cart;
 
-// books: [
-//   {
-//     book: {
-//       type: mongoose.Schema.ObjectId,
-//       ref: 'Book',
-//     },
-//     count: Number,
-//     price: Number,
-//   },
-// ],
-// cartTotal: Number,
-// orderby: {
-//   type: mongoose.Schema.ObjectId,
-//   ref: 'User',
-// },

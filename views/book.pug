@@ -20,7 +20,7 @@ block content
                                             h3.title=book.title
                                         .border-bottom.py-3
                                             p.marg-bot= `by ${book.authors}`
-                                            p.marg-bot.price= `$${book.price}`
+                                            p.marg-bot.price= `₦${book.price.toLocaleString('en-NG', { minimumFractionDigits: 0 })}`
                                             .reviews.marg-bot.d-flex.align-items-center.gap-10
                                                 - const [review] = book.reviews
                                                     +reviewCard(review)

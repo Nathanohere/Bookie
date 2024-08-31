@@ -13,5 +13,5 @@ block content
                             .container
                                 span.a-size
                                     .title=book.title
-                                p.price= `$${book.price}`
+                                p.price= `₦${book.price.toLocaleString('en-NG', { minimumFractionDigits: 0 })}`
                                 a.btn.btn-secondary(href=`/book/${book.slug}`) Details
