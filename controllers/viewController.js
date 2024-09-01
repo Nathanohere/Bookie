@@ -5,7 +5,6 @@ const asyncHandler = require('express-async-handler');
 
 exports.getOverview = asyncHandler(async (req, res, next) => {
   const books = await Book.find();
-  // console.log(books);
   res.status(200).render('views/overview', {
     title: 'All books',
     books,

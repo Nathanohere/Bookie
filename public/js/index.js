@@ -40,7 +40,6 @@ if (userDataForm)
     e.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
-    console.log(name, email);
     updateSettings({ name, email }, 'data');
   });
 
@@ -81,7 +80,6 @@ if (addToCartForm)
     e.preventDefault();
     // alert(2);
     const bookCart = document.getElementById('crt-items').value;
-    console.log('loggy', bookCart);
     await addToCart(bookCart);
   });
 
@@ -89,7 +87,6 @@ if (deleteCartForm)
   deleteCartForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const book = document.getElementById('dlt-item').value;
-    console.log('si', book);
     await deleteCart(book);
   });
 
@@ -100,8 +97,5 @@ if (checkoutForm)
     const totalClass = document.querySelector('.totalBill');
     const totalClassText = totalClass.textContent;
     const numValue = parseFloat(totalClassText.replace(/[^0-9.]/g, ''));
-    console.log('yus', userEmail);
-    console.log('cvb', totalClassText);
-    console.log('numV', numValue);
     await checkout(userEmail, numValue);
   });

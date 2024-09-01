@@ -10,7 +10,7 @@ exports.acceptPayment = asyncHandler(async (req, res) => {
     const params = JSON.stringify({
       email: email,
       amount: amount * 100,
-    });    
+    });
     // options
     const options = {
       hostname: 'api.paystack.co',
@@ -31,7 +31,6 @@ exports.acceptPayment = asyncHandler(async (req, res) => {
           data += chunk;
         });
         apiRes.on('end', () => {
-          console.log(JSON.parse(data));
           return res.status(200).json(data);
         });
       })
@@ -55,7 +54,8 @@ exports.statusPayment = asyncHandler(async (req, res) => {
       path: '/transaction/verify/:reference',
       method: 'GET',
       headers: {
-        Authorization: 'Bearer sk_test_16f67f36df64f7eba5e6390f28aedefa7756e030',
+        Authorization:
+          'Bearer sk_test_16f67f36df64f7eba5e6390f28aedefa7756e030',
       },
     };
 
@@ -68,7 +68,6 @@ exports.statusPayment = asyncHandler(async (req, res) => {
         });
 
         apiRes.on('end', () => {
-          console.log(JSON.parse(data));
           return res.status(200).json(data);
         });
       })

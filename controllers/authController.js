@@ -50,9 +50,6 @@ exports.signup = asyncHandler(async (req, res, next) => {
   });
   const url = `${req.protocol}://${req.get('host')}/me`;
 
-  // console.log(url);
-  // console.log(newUser);
-
   await new Email(newUser, url).sendWelcome();
 
   createSendToken(newUser, 201, res);
@@ -105,7 +102,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
 
   // Verification token
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
-  console.log('dec', decoded);
+  // console.log('dec', decoded);
 
   // Check if user exists
   const currentUser = await User.findById(decoded.id);
@@ -114,7 +111,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
       new AppError('The user belonging to the token does not exist', 401)
     );
   }
-  console.log(decoded.iat);
+  // console.log(decoded.iat);
   // Check if password has been changed since token issued
   if (currentUser.changedPasswordAfter(decoded.iat)) {
     return next(
@@ -124,7 +121,6 @@ exports.protect = asyncHandler(async (req, res, next) => {
   // Grant access to protected routes
   req.user = currentUser;
   res.locals.user = currentUser;
-
 
   next();
 });
@@ -163,7 +159,6 @@ exports.isLoggedIn = async (req, res, next) => {
 exports.restrictTo =
   (...roles) =>
   (req, res, next) => {
-    console.log('restrict', req.user.role);
     if (!roles.includes(req.user.role)) {
       return next(
         new AppError('The user is not authorized to perform the action')
@@ -175,7 +170,6 @@ exports.restrictTo =
 exports.forgotPassword = asyncHandler(async (req, res, next) => {
   // Get user based on email
   const user = await User.findOne({ email: req.body.email });
-  console.log(user);
 
   if (!user) {
     return next(new AppError('NO user with this email was found', 404));
@@ -184,7 +178,6 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   // Generate random password
   const resetToken = await user.createPasswordResetToken();
   await user.save({ validateBeforeSave: false });
-  console.log(resetToken);
 
   try {
     const resetUrl = `${req.protocol}://${req.get(
@@ -216,23 +209,17 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
     .update(req.params.token)
     .digest('hex');
 
-  console.log('hsh', hashedToken);
-
   const user = await User.findOne({
     passwordResetToken: hashedToken,
     passwordExpiresAt: { $gte: Date.now() },
   });
 
-  console.log('usss', user);
   // If user exists and token is not expired, set new password
   if (!user) {
     return next(new AppError('Token is expired or is invalid', 400));
   }
   user.password = req.body.password;
   user.passwordConfirm = req.body.passwordConfirm;
-
-  console.log('yoyoi', user.password, user.passwordConfirm);
-  console.log('yoyoixc', req.body);
 
   user.passwordResetToken = undefined;
   user.passwordExpiresAt = undefined;
@@ -268,7 +255,6 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
   next();
 });
 
-
 exports.getCart = asyncHandler(async (req, res, next) => {
   const userId = req.user._id;
   if (!userId) {
@@ -276,15 +262,9 @@ exports.getCart = asyncHandler(async (req, res, next) => {
   }
   try {
     const cart = await Cart.findOne({ userId }).populate('books.bookId');
-    console.log('mm', cart);
     const { books } = cart;
-    // console.log('nim', books);
     const booky = books.map((item) => item.bookId);
-    // console.log('.id', booky);
-    booky.forEach((bookId) => {
-      console.log('jjj', bookId.title);
-      console.log('vvv', bookId.price);
-    });
+
     if (cart && cart.books.length > 0) {
       res.status(200).json({
         status: 'success',
@@ -305,8 +285,6 @@ exports.emptyCart = asyncHandler(async (req, res, next) => {
     let cart = await Cart.findOne({ userId });
 
     const bookIndex = cart.books.findIndex((book) => book.bookId == bookId);
-    console.log('hh', bookId);
-    console.log('ss', bookIndex);
     if (bookIndex > -1) {
       let book = cart.books[bookIndex];
       cart.bill = book.quantity * book.price;
@@ -332,16 +310,12 @@ exports.emptyCart = asyncHandler(async (req, res, next) => {
 exports.createCart = asyncHandler(async (req, res, next) => {
   const { bookId, quantity } = req.body;
   const userId = req.user._id;
-  console.log('use', userId);
-  // console.log('Uses', _id);
   if (!userId) {
     return next(new AppError('This is invalid', 400));
   }
   try {
     const cart = await Cart.findOne({ userId });
     const book = await Book.findOne({ _id: bookId });
-    // console.log('ff', cart);
-    // console.log('gg', book);
     if (!book) {
       return next(new AppError('Book is not foud', 404));
     }
@@ -351,13 +325,11 @@ exports.createCart = asyncHandler(async (req, res, next) => {
     //If cart already exists for user,
     if (cart) {
       const bookIndex = cart.books.findIndex((book) => book.bookId == bookId);
-      // console.log('bindx', bookIndex);
       //check if product exists or not
 
       if (bookIndex > -1) {
         let product = cart.books[bookIndex];
         product.quantity += quantity;
-        // console.log('prod', product.quantity);
         cart.bill = cart.books.reduce((acc, curr) => {
           return acc + curr.quantity * curr.price;
         }, 0);
@@ -399,18 +371,9 @@ exports.createCart = asyncHandler(async (req, res, next) => {
 exports.getCartView = asyncHandler(async (req, res, next) => {
   const userId = req.user._id;
   const userEmail = req.user.email;
-  console.log('usy', req.user.email);
-  // console.log('mm', userId);
   const cart = await Cart.findOne({ userId }).populate('books.bookId');
-  console.log('ct', cart);
   const { books } = cart;
-  console.log('nimy', books);
   const booky = books.map((item) => item.bookId);
-  console.log('tori', booky);
-  booky.forEach((bookId) => {
-    console.log('jjj', bookId.title);
-    console.log('vvv', bookId.price);
-  });
 
   if (!cart) {
     return next(new AppError('There is no cart available.', 404));
@@ -424,4 +387,3 @@ exports.getCartView = asyncHandler(async (req, res, next) => {
     userEmail,
   });
 });
-

@@ -11,7 +11,6 @@ export const resetPassword = async (password, confirmPassword, token) => {
         confirmPassword,
       },
     });
-    console.log(url);
     if (res.data.status === 'success') {
       showAlert('success', 'Password reset successfully');
     }

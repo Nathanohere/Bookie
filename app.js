@@ -5,9 +5,9 @@ const helmet = require('helmet');
 const rateLimiter = require('express-rate-limit');
 const monogoSanitize = require('express-mongo-sanitize');
 const hpp = require('hpp');
-const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const bookRouter = require('./routes/bookRoute');
@@ -68,10 +68,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(compression());
+
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  // console.log('reot',req.cookies);
   next();
 });
 
