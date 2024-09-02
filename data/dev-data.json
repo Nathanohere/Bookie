@@ -92,19 +92,19 @@
     "categories": ["Web Development"]
   },
   {
-    "title": "Flex on Java",
-    "isbn": "1933988797",
-    "pageCount": 265,
-    "publishedDate": { "$date": "2010-10-15T00:00:00.000-0700" },
-    "thumbnailUrl": "flex-on-java.jpg",
-    "shortDescription": "A beautifully written book that is a must have for every Java Developer.       Ashish Kulkarni, Technical Director, E-Business Software Solutions Ltd.",
-    "longDescription": "In the demo, a hip designer, a sharply-dressed marketer, and a smiling, relaxed developer sip lattes and calmly discuss how Flex is going to make customers happy and shorten the workday   all while boosting the bottom line. The software systems they're using have been carefully selected and built from the ground up to work together seamlessly. There are no legacy systems, data, or competing business concerns to manage.    Cut to reality.    You're a Java developer. The marketing guy tells you that \"corporate\" wants a Flex-based site and you have to deliver it on top of what you already have. Your budget  Don't even ask. \"Make it look like the Discovery channel or something.\"    Flex on Java assumes you live in the real world   not the demo. This unique book shows you how to refactor an existing web application using the server-side you already know. You'll learn to use Flex 3 in concert with Spring, EJB 3, POJOs, JMS, and other standard technologies. Wherever possible, the examples use free or open source software.    The authors start with a typical Java web app and show you how to add a rich Flex interface. You also learn how to integrate Flex into your server-side Java via the BlazeDS framework, Adobe's open-source remoting and web messaging technology for Flex.    The book shows you how to deploy to not only the web but also to the desktop using the Adobe Integrated Runtime (AIR). You will learn how to integrate Flex into your existing applications in order to build a next generation application that will delight users.    Flex on Java is approachable for anyone beginning Java and Flex development.    ",
+    "title": "Dependency Injection in .NET",
+    "isbn": "1935182501",
+    "pageCount": 375,
+    "publishedDate": { "$date": "2011-10-03T00:00:00.000-0700" },
+    "thumbnailUrl": "dependency-injection.jpg",
+    "shortDescription": "Dependency Injection in .NET is a comprehensive guide than introduces DI and provides an in-depth look at applying DI practices to .NET apps. In it, you will also learn to integrate DI together with such technologies as Windows Communication Foundation, ASP.NET MVC, Windows Presentation Foundation and other core .NET components.",
+    "longDescription": "Dependency Injection (DI) is a software design technique emphasizing Separation of Concerns, Modularity, Extensibility and Testability. Applied well, it enables programmers to successfully deal with complexity in software and add new features to existing apps with greater ease. DI is the key to writing modular software and producing flexible and maintainable code bases.    While well-known among Java developers and other practitioners of object-oriented design, DI is only now gaining momentum in the .NET community. The Unity container released by Microsoft patterns & practices and the new Microsoft Extensibility Framework (MEF) make DI more relevant than ever for .NET developers.    Dependency Injection in .NET is a comprehensive guide than introduces DI and provides an in-depth look at applying DI practices to .NET apps. In it, you will also learn to integrate DI together with such technologies as Windows Communication Foundation, ASP.NET MVC, Windows Presentation Foundation and other core .NET components.    Building on your existing knowledge of C# and the .NET platform, this book will be most beneficial for readers who have already built at least a few software solutions of intermediate complexity. Most examples are in plain C# without use of any particular DI framework. Later, the book introduces several well-known DI frameworks, such as StructureMap, Windsor and Spring.NET. For each framework, it presents examples of its particular usage, as well as examines how the framework relates to the common patterns presented earlier in the book. WHAT'S INSIDE        * A thorough introduction to DI principles applied to .NET development      * Numerous C#-based examples      * A comprehensive catalog of Patterns and Anti-Patterns      * Understand the importance of loose coupling      * Learn DI Containers including StructureMap, Windsor, Spring.NET and the Microsoft Extensibility Framework      * Identify and avoid common traps",
     "status": "PUBLISH",
-    "authors": ["Bernerd Allmon", "Jeremy Anderson"],
+    "authors": ["Mark Seemann"],
     "ratingsAverage": 4.8,
     "ratingsQuantity": 6,
     "price": 28784,
-    "categories": ["Internet"]
+    "categories": ["Microsoft .NET"]
   },
   {
     "title": "Griffon in Action",
