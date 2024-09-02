@@ -138,22 +138,6 @@
   },
 
   {
-    "title": "Spring Dynamic Modules in Action",
-    "isbn": "1935182307",
-    "pageCount": 450,
-    "publishedDate": { "$date": "2010-09-04T00:00:00.000-0700" },
-    "thumbnailUrl": "Spring-Dynamic-Modules-in-Action.jpg",
-    "shortDescription": "Spring Dynamic Modules in Action introduces Spring DM and OSGi to Java EE developers and architects. It presents the fundamental concepts of OSGi-based apps and maps them to the familiar ideas of the Spring framework. Then, it engages you with the techniques and concepts you'll need to develop stable, flexible enterprise apps. You'll learn how to embed a Spring container inside an OSGi bundle, and how Spring DM lets you blend Spring strengths like dependency injection with OSGi-based services. Along the way, you'll see how Spring DM handles data access and web-based components, and you'll explore topics like unit testing and configuration in an OSGi-based environment.",
-    "longDescription": "OSGi is increasingly familiar to Java coders working in distributed environments, but the tools required to implement OSGi-based systems have been slow to develop. Spring Dynamic Modules (Spring DM) is a framework designed to make it easy to build Spring apps that take advantage of the OSGi approach to modular Java development. It simplifies the task of creating true component and service oriented architectures in an OSGi environment using all the powerful features of the Spring framework.    Spring Dynamic Modules in Action introduces Spring DM and OSGi to Java EE developers and architects. It presents the fundamental concepts of OSGi-based apps and maps them to the familiar ideas of the Spring framework. Then, it engages you with the techniques and concepts you'll need to develop stable, flexible enterprise apps. You'll learn how to embed a Spring container inside an OSGi bundle, and how Spring DM lets you blend Spring strengths like dependency injection with OSGi-based services. Along the way, you'll see how Spring DM handles data access and web-based components, and you'll explore topics like unit testing and configuration in an OSGi-based environment.",
-    "status": "PUBLISH",
-    "authors": ["Arnaud Cogoluegnes", "Thierry Templier", "", "Andy Piper"],
-    "ratingsAverage": 4.5,
-    "ratingsQuantity": 8,
-    "price": 47984,
-    "categories": ["Java"]
-  },
-
-  {
     "title": "Spring in Action",
     "isbn": "1932394354",
     "pageCount": 472,
