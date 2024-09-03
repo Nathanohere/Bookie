@@ -20,6 +20,8 @@ const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
+app.enable('trust proxy');
+
 app.set('view engine', 'pug');
 
 // Define where views are located in file system
@@ -62,8 +64,7 @@ app.use(
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "script-src 'self' cdnjs.cloudflare.com",
-    'https://example.com'
+    "script-src 'self' cdnjs.cloudflare.com; https://example.com"
   );
   next();
 });

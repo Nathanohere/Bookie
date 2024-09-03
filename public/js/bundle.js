@@ -11973,7 +11973,7 @@ var showAlert = exports.showAlert = function showAlert(type, msg) {
   hideAlert();
   var markup = "<div class=\"alert alert--".concat(type, "\">").concat(msg, "</div>");
   document.querySelector('body').insertAdjacentHTML('afterbegin', markup);
-  window.setTimeout(hideAlert, 2000);
+  window.setTimeout(hideAlert, 1000);
 };
 },{}],"test.js":[function(require,module,exports) {
 "use strict";
