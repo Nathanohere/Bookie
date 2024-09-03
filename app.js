@@ -64,7 +64,7 @@ app.use(
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "script-src 'self' cdnjs.cloudflare.com; https://example.com"
+    "script-src 'self' cdnjs.cloudflare.com https://example.com;"
   );
   next();
 });
