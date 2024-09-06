@@ -20,6 +20,10 @@ const globalErrorHandler = require('./controllers/errorController');
 
 const app = express();
 
+app.set('trust proxy', 1);
+
+app.get('/ip', (request, response) => response.send(request.ip));
+
 app.enable('trust proxy');
 
 app.set('view engine', 'pug');
