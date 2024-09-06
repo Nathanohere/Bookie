@@ -11999,7 +11999,7 @@ var signup = exports.signup = /*#__PURE__*/function () {
           _context.next = 3;
           return (0, _axios.default)({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/signup',
+            url: '/api/v1/users/signup',
             data: {
               name: name,
               email: email,
@@ -12039,7 +12039,7 @@ var login = exports.login = /*#__PURE__*/function () {
           _context2.next = 3;
           return (0, _axios.default)({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/login',
+            url: '/api/v1/users/login',
             data: {
               email: email,
               password: password
@@ -12079,7 +12079,7 @@ var logout = exports.logout = /*#__PURE__*/function () {
           _context3.next = 3;
           return (0, _axios.default)({
             method: 'GET',
-            url: 'http://127.0.0.1:3000/api/v1/users/logout'
+            url: '/api/v1/users/logout'
           });
         case 3:
           res = _context3.sent;
@@ -12111,7 +12111,7 @@ var addToCart = exports.addToCart = /*#__PURE__*/function () {
           _context4.next = 4;
           return (0, _axios.default)({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/createCart',
+            url: '/api/v1/users/createCart',
             data: {
               bookId: bookId,
               quantity: quantity
@@ -12148,7 +12148,7 @@ var deleteCart = exports.deleteCart = /*#__PURE__*/function () {
           _context5.next = 3;
           return (0, _axios.default)({
             method: 'DELETE',
-            url: "http://127.0.0.1:3000/api/v1/users/emptyCart?bookId=".concat(book),
+            url: "/api/v1/users/emptyCart?bookId=".concat(book),
             data: {
               book: book
             }
@@ -12182,7 +12182,7 @@ var checkout = exports.checkout = /*#__PURE__*/function () {
           _context6.next = 3;
           return (0, _axios.default)({
             method: 'POST',
-            url: "http://127.0.0.1:3000/paystack",
+            url: "/paystack",
             data: {
               email: email,
               amount: amount
@@ -12235,7 +12235,7 @@ var updateSettings = exports.updateSettings = /*#__PURE__*/function () {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           _context.prev = 0;
-          url = type === 'password' ? 'http://127.0.0.1:3000/api/v1/users//updateMyPassword' : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+          url = type === 'password' ? '/api/v1/users//updateMyPassword' : '/api/v1/users/updateMe';
           _context.next = 4;
           return (0, _axios.default)({
             method: 'PATCH',
@@ -12337,7 +12337,7 @@ var resetPassword = exports.resetPassword = /*#__PURE__*/function () {
           _context.next = 3;
           return (0, _axios.default)({
             method: 'PATCH',
-            url: "http://127.0.0.1:3000/api/v1/users/resetPassword/".concat(token),
+            url: "/api/v1/users/resetPassword/".concat(token),
             data: {
               password: password,
               confirmPassword: confirmPassword

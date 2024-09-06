@@ -6,7 +6,7 @@ export const signup = async (name, email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/signup',
+      url: '/api/v1/users/signup',
       data: {
         name,
         email,
@@ -28,7 +28,7 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/login',
+      url: '/api/v1/users/login',
       data: {
         email,
         password,
@@ -50,7 +50,7 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://127.0.0.1:3000/api/v1/users/logout',
+      url: '/api/v1/users/logout',
     });
     if ((res.data.status = 'success')) location.reload(true);
   } catch (error) {
@@ -65,7 +65,7 @@ export const addToCart = async (bookId) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:3000/api/v1/users/createCart',
+      url: '/api/v1/users/createCart',
       data: { bookId, quantity },
     });
     if (res.data.status === 'success') {
@@ -80,7 +80,7 @@ export const deleteCart = async (book) => {
   try {
     const res = await axios({
       method: 'DELETE',
-      url: `http://127.0.0.1:3000/api/v1/users/emptyCart?bookId=${book}`,
+      url: `/api/v1/users/emptyCart?bookId=${book}`,
       data: { book },
     });
     if (res.data.status === 'success') location.reload(true);
@@ -93,7 +93,7 @@ export const checkout = async (email, amount) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: `http://127.0.0.1:3000/paystack`,
+      url: `/paystack`,
       data: { email, amount },
     });
     const data = JSON.parse(res.data);
