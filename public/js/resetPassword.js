@@ -14,7 +14,7 @@ export const resetPassword = async (password, confirmPassword, token) => {
     if (res.data.status === 'success') {
       showAlert('success', 'Password reset successfully');
       window.setTimeout(() => {
-        location.href = '/api/v1/users/login';
+        location.href = '/login';
       }, 1000);
     }
   } catch (err) {
