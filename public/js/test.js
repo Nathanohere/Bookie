@@ -15,6 +15,7 @@ export const signup = async (name, email, password) => {
     });
 
     if (res.data.status === 'success') {
+      showAlert('success', 'Signed up in successfully!');
       window.setTimeout(() => {
         location.assign('/');
       }, 1000);
@@ -69,7 +70,7 @@ export const addToCart = async (bookId) => {
       data: { bookId, quantity },
     });
     if (res.data.status === 'success') {
-      // console.log('Book added successfully', res);
+      showAlert('success', 'Add to cart successful!');
     }
   } catch (err) {
     showAlert('error', 'Error adding cart');
@@ -83,7 +84,10 @@ export const deleteCart = async (book) => {
       url: `/api/v1/users/emptyCart?bookId=${book}`,
       data: { book },
     });
-    if (res.data.status === 'success') location.reload(true);
+    if (res.data.status === 'success') {
+      showAlert('success', 'Product was removed from cart!');
+      location.reload(true);
+    }
   } catch (error) {
     showAlert('error', 'Error removing cart');
   }
