@@ -11,6 +11,22 @@
 
 ![Screenshot 2024-08-14 072828](https://github.com/user-attachments/assets/f97989c8-a27e-4498-838e-100a47667a13)
 
+### **Checkout**
+
+![checked](https://github.com/user-attachments/assets/9d5ee6d8-514f-4e07-b16d-1d56995f4cea)
+
+### **Payment Options**
+
+![options](https://github.com/user-attachments/assets/65a9fe87-e5b6-40f4-a419-943f6f53a3e3)
+
+### **Successful Payment**
+
+![success](https://github.com/user-attachments/assets/bc7657c0-0ab1-4fb4-9422-12d0cfff09e6)
+
+### **Payment Receipts**
+
+![receipts](https://github.com/user-attachments/assets/0042914e-1cc9-438f-926a-a60da377e822)
+
 
 ## Environmental Variables
 This project requires the following enviroment variables:
